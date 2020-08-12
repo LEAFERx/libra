@@ -14,6 +14,7 @@ mod reboot_random_validators;
 mod recovery_time;
 mod twin_validator;
 mod versioning_test;
+use libra_logger::*;
 
 use std::{
     collections::{HashMap, HashSet},
@@ -157,6 +158,7 @@ pub fn get_experiment(name: &str, args: &[String], cluster: &Cluster) -> Box<dyn
     );
     known_experiments.insert("reboot_cluster", f::<RebootClusterParams>());
 
+    info!("hhhhhh {:?}", name);
     let builder = known_experiments.get(name).expect("Experiment not found");
     builder(args, cluster)
 }
