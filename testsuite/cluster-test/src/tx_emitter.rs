@@ -128,7 +128,7 @@ impl EmitJobRequest {
 
     pub fn fixed_tps_params(instance_count: usize, tps: u64) -> (usize, u64) {
         if tps < 1 {
-            panic!("Target tps {} can not less than 1", tps)
+            panic!("Target tps {} can not less than", tps)
         }
         let num_workers = tps as usize / instance_count + 1;
         let wait_time = (instance_count * num_workers * 1000_usize / tps as usize) as u64;
